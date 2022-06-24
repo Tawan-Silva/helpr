@@ -28,7 +28,6 @@ public class TecnicoService {
 	private BCryptPasswordEncoder encoder;
 
 	//Métoido de busca por um ID no banco.
-
 	public Tecnico findById(Integer id) {
 		Optional<Tecnico> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não foi encontrado: " + id));
@@ -81,4 +80,6 @@ public class TecnicoService {
 			throw new DataIntegrityViolationException("E-mail já cadastrado no sistema!");
 		}
 	}
+
+
 }

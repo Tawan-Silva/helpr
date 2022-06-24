@@ -38,14 +38,14 @@ public class DBService {
 		Tecnico t4 = new Tecnico(null, "Taisa Ferreira", "612.261.820-97","tataferreira@gmail.com", encoder.encode("123456"));
 		t4.addPerfils(Perfil.TECNICO);
 		Tecnico t5 = new Tecnico(null, "Danrley Souza", "936.848.410-48","dandansouza@gmail.com", encoder.encode("123456"));
-		t5.addPerfils(Perfil.ADMIN);
+		t5.addPerfils(Perfil.TECNICO);
 		Tecnico t6 = new Tecnico(null, "Bruna Souza", "820.420.380-24","souzabrubs@gmail.com", encoder.encode("123456"));
 		t6.addPerfils(Perfil.TECNICO);
 		
-		Cliente c1 = new Cliente(null, "Salazar Sonserina", "172.551.910-02","sa.sonserina@gmail.com",encoder.encode("ofideo123"));
-		Cliente c2 = new Cliente(null, "Tony Krisley", "072.198.180-17","tonykrisley@gmail.com", encoder.encode("1234"));
-		Cliente c3 = new Cliente(null, "Gregorio Grifinória", "075.261.600-51","grifinoriagreg@gmail.com", encoder.encode("1234"));
-		Cliente c4 = new Cliente(null, "Lorena Corvinal", "603.780.760-43","corvinallorena@gmail.com", encoder.encode("1234"));
+		Cliente c1 = new Cliente(null, "Salazar Sonserina", "172.551.910-02","sa.sonserina@gmail.com", encoder.encode("ofideo123"));
+		Cliente c2 = new Cliente(null, "Tony Krisley", "072.198.180-17","tonykrisley@gmail.com",encoder.encode("1234"));
+		Cliente c3 = new Cliente(null, "Gregorio Grifinória", "075.261.600-51","grifinoriagreg@gmail.com",encoder.encode("1234"));
+		Cliente c4 = new Cliente(null, "Lorena Corvinal", "603.780.760-43","corvinallorena@gmail.com",encoder.encode("1234"));
 		
 		Chamado ch1 = new Chamado(null, Prioridade.MEDIA, 
 				Status.ANDAMENTO, "Chamado Inaugural","Este é o 1o chamado para o sistema.", t1, c1);

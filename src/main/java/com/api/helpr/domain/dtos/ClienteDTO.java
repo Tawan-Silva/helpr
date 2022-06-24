@@ -12,10 +12,10 @@ import com.api.helpr.domain.Pessoa;
 import com.api.helpr.domain.enums.Perfil;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class ClienteDTO extends Pessoa {
+public class ClienteDTO extends Pessoa{
 
 	private static final long serialVersionUID = 1L;
-
+	
 	protected Integer id;
 	@NotNull(message = "O campo NOME não poderá ser nulo")
 	protected String nome;
@@ -26,7 +26,7 @@ public class ClienteDTO extends Pessoa {
 	@NotNull(message = "O campo de SENHA não pode ser nulo")
 	protected String senha;
 	protected Set<Integer> perfils = new HashSet<>();
-
+	
 	@JsonFormat(pattern = "dd/MM/yyyy")
 	protected LocalDate dataCriacao = LocalDate.now();
 
@@ -47,6 +47,7 @@ public class ClienteDTO extends Pessoa {
 		addPerfil(Perfil.CLIENTE);
 	}
 
+	
 	public Integer getId() {
 		return id;
 	}
@@ -102,4 +103,8 @@ public class ClienteDTO extends Pessoa {
 	public void setDataCriacao(LocalDate dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
+
+	
+	
+	
 }

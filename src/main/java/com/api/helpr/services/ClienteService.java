@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.api.helpr.domain.Pessoa;
 import com.api.helpr.domain.Cliente;
+import com.api.helpr.domain.Pessoa;
 import com.api.helpr.domain.dtos.ClienteDTO;
-import com.api.helpr.repositories.PessoaRepository;
 import com.api.helpr.repositories.ClienteRepository;
+import com.api.helpr.repositories.PessoaRepository;
 import com.api.helpr.services.exceptions.DataIntegrityViolationException;
 import com.api.helpr.services.exceptions.ObjectNotFoundException;
 
@@ -21,12 +21,12 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository repository;
 
-	@Autowired 
+	@Autowired
 	private PessoaRepository pessoaRepository;
-	
+
 	@Autowired
 	private BCryptPasswordEncoder encoder;
-
+	
 	public Cliente findById(Integer id) {
 		Optional<Cliente> obj = repository.findById(id);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não foi encontrado: " + id));
@@ -51,13 +51,13 @@ public class ClienteService {
 		oldObj = new Cliente(objDto);
 		return repository.save(oldObj);
 	}
-	
+
 	public void delete(Integer id) {
 		Cliente obj = findById(id);
 		if(obj.getChamados().size() > 0) {
-			throw new DataIntegrityViolationException("O Cliente: "+
-		id+" tem chamados no sistema: "+
-		obj.getChamados().size());
+			throw new DataIntegrityViolationException("O Cliente: " + 
+			id + " tem chamados no sistema: " +
+			obj.getChamados().size());
 		}
 		repository.deleteById(id);
 	}
@@ -73,7 +73,6 @@ public class ClienteService {
 		if (obj.isPresent() && obj.get().getId() != objDto.getId()) {
 			throw new DataIntegrityViolationException("E-mail já cadastrado no sistema!");
 		}
+
 	}
-
-
 }

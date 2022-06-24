@@ -15,10 +15,10 @@ public class JWTUtil {
 	@Value("${jwt.expiration}")
 	private Long expiration;
 
-	@Value("{jwt.secret}")
+	@Value("${jwt.secret}")
 	private String secret;
 
-	public String generetedTolken(String email) {
+	public String generateToken(String email) {
 		return Jwts.builder().setSubject(email).setExpiration(new Date(System.currentTimeMillis() + expiration))
 				.signWith(SignatureAlgorithm.HS512, secret.getBytes()).compact();
 	}
@@ -34,11 +34,14 @@ public class JWTUtil {
 				return true;
 			}
 		}
+
 		return false;
+
 	}
 
 	private Claims getClaims(String token) {
 		try {
+			// Getbytes porque é um vetor de caracteres
 			return Jwts.parser().setSigningKey(secret.getBytes()).parseClaimsJws(token).getBody();
 		} catch (Exception e) {
 			return null;
